@@ -1,4 +1,4 @@
-// const characters = require('./characters')
+const characters = require('./characters')
 const houses = require('./houses')
 
-module.exports = { houses }
+module.exports = { characters, houses }

@@ -6,7 +6,7 @@ const routes = require('./routes/index')
 
 const app = express()
 
-const PORT = 4242
+const PORT = process.env.PORT || 4242
 
 //connection Mysql
 connection.connect(err => {
@@ -23,12 +23,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/houses', routes.houses)
+app.use('/characters', routes.characters)
 
 app.get('/', (req, res) => {
   res.status(200).send('je suis dans le /')
-})
-app.get('/characters', (req, res) => {
-  res.status(200).send('je suis dans le /characters')
 })
 
 app.listen(PORT, console.log(`http://localhost:${PORT}`))
